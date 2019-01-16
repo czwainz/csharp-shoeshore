@@ -7,12 +7,9 @@ namespace shoestore.Models
     public string Brand { get; set; }
     public float Price { get; set; }
 
-    public Shoe(string name, string gender, string brand, float price)
+    public Shoe()
     {
-      Name = name;
-      Gender = gender;
-      Brand = brand;
-      Price = price;
+
     }
   }
 }

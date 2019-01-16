@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using shoestore.Repositories;
 
 namespace shoestore
 {
@@ -26,7 +27,7 @@ namespace shoestore
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
+      services.AddTransient<ShoeRepository>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using shoestore.Models;
+using shoestore.Repositories;
 
 namespace shoestore.Controllers
 {
@@ -11,29 +12,25 @@ namespace shoestore.Controllers
   [ApiController]
   public class ShoesController : ControllerBase
   {
-    public List<Shoe> Shoes = new List<Shoe>()
-    {
-      new Shoe("Booties", "Women's", "Lucky", 100f),
-      new Shoe("Slides", "Men's", "Sanuk", 45.99f),
-      new Shoe("Ugg Boots", "Women's", "Ugg", 125f)
-    };
+
+
     // GET api/values
     [HttpGet]
     public ActionResult<IEnumerable<Shoe>> Get()
     {
-      return Shoes;
+      return Ok(_shoeRepo.GetAll());
     }
 
     // GET api/values/5
     [HttpGet("{id}")]
-    public ActionResult<string> Get(int id)
+    public ActionResult<Shoe> Get(int id)
     {
-      return "value";
+
     }
 
     // POST api/values
     [HttpPost]
-    public void Post([FromBody] string value)
+    public void Post([FromBody] string shoe)
     {
     }
 
